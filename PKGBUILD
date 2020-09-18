@@ -32,9 +32,7 @@ source_x86_64=("${pkgname}-${pkgver}-x86_64.deb::http://repository.spotify.com/p
                "${pkgname}-${pkgver}-x86_64-Packages::http://repository.spotify.com/dists/stable/non-free/binary-amd64/Packages")
 # source_i686=("${pkgname}-${pkgver}-i686.deb::http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_${pkgver}.${_commit}-${_ver_i686}_i386.deb"
 #              "${pkgname}-${pkgver}-i686-Packages::http://repository.spotify.com/dists/stable/non-free/binary-i386/Packages")
-sha512sums=('999abe46766a4101e27477f5c9f69394a4bb5c097e2e048ec2c6cb93dfa1743eb436bde3768af6ba1b90eaac78ea8589d82e621f9cbe7d9ab3f41acee6e8ca20'
-            '2e16f7c7b09e9ecefaa11ab38eb7a792c62ae6f33d95ab1ff46d68995316324d8c5287b0d9ce142d1cf15158e61f594e930260abb8155467af8bc25779960615'
-            'SKIP'
+sha512sums=('SKIP'
             'SKIP')
 sha512sums_x86_64=('af9f1beafe0e4d2313326d1a55675550e8c3fcd5cd2dc0954127094c563048b98f74f669d99a10f0ef6e3b3405856bb9d6a2561644a434ab6bade9c812296963'
                    '39074e57abb9a647b4b27cc09bf91dd80a16589c8503b17061c23277b7718e778834bb79c168c771b9615d9e247f1ce9c5c597a10db905874a5d5c79f1109856')
@@ -72,12 +70,6 @@ package() {
     # Symlink spotify binary which is located in /opt
     ln -sf /opt/spotify/spotify "${pkgdir}/usr/bin/spotify"
 
-    # Copy protocol file for KDE
-    install -Dm644 "${srcdir}/spotify.protocol" "${pkgdir}/usr/share/kservices5/spotify.protocol"
-
-    # Install license
-    # https://www.spotify.com/legal/end-user-agreement
-    install -Dm 644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 
     # Fix permissions
     chmod -R go-w "${pkgdir}"
