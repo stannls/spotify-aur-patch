@@ -26,9 +26,7 @@ options=('!strip')
 # http://repository.spotify.com/dists/stable/non-free/binary-amd64/Packages
 # http://repository.spotify.com/dists/stable/non-free/binary-i386/Packages
 # http://repository.spotify.com/dists/stable/Release.gpg
-source=('spotify.protocol'
-        'LICENSE'
-        "${pkgname}-${pkgver}-Release::http://repository.spotify.com/dists/stable/Release"
+source=("${pkgname}-${pkgver}-Release::http://repository.spotify.com/dists/stable/Release"
         "${pkgname}-${pkgver}-Release.sig::http://repository.spotify.com/dists/stable/Release.gpg")
 source_x86_64=("${pkgname}-${pkgver}-x86_64.deb::http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_${pkgver}.${_commit}-${_ver_x86_64}_amd64.deb"
                "${pkgname}-${pkgver}-x86_64-Packages::http://repository.spotify.com/dists/stable/non-free/binary-amd64/Packages")
